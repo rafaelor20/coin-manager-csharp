@@ -260,3 +260,4 @@
 /home/rafael/Documentos/Projetos/coin-manager-csharp/back-end/obj/Debug/net9.0/back-end.pdb
 /home/rafael/Documentos/Projetos/coin-manager-csharp/back-end/obj/Debug/net9.0/back-end.genruntimeconfig.cache
 /home/rafael/Documentos/Projetos/coin-manager-csharp/back-end/obj/Debug/net9.0/ref/back-end.dll
+/home/rafael/Documentos/Projetos/coin-manager-csharp/back-end/obj/Debug/net9.0/back-end.sourcelink.json

@@ -17,14 +17,14 @@ public class TransactionRepository
         return (await _dbConnection.QueryAsync<Transaction>(query)).ToList();
     }
 
-    public async Task<Transaction> storeTransaction(string description, decimal amount, string entity, DateTime? date)
+    public async Task<Transaction> storeTransaction(string description, decimal amount, string entity, DateTime? created_at)
     {
-        if (!date.HasValue)
+        if (!created_at.HasValue)
         {
-            date = DateTime.Now;
+            created_at = DateTime.Now;
         }
-        var query = "INSERT INTO \"Transactions\" (\"Description\", \"Amount\", \"Entity\", \"Date\") VALUES (@Description, @Amount, @Entity, @Date) RETURNING *";
-        return await _dbConnection.QuerySingleAsync<Transaction>(query, new { Description = description, Amount = amount, Entity = entity, Date = date });
+        var query = "INSERT INTO \"Transactions\" (\"Description\", \"Amount\", \"Entity\", \"Created_at\") VALUES (@Description, @Amount, @Entity, @Created_at) RETURNING *";
+        return await _dbConnection.QuerySingleAsync<Transaction>(query, new { Description = description, Amount = amount, Entity = entity, Created_at = created_at });
     }
 
     public async Task deleteTransaction(int transactionId)

@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 
+using back_end.src.models;
+
 [ApiController]
 [Route("auth")]
 
@@ -15,7 +17,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Authenticate([FromBody] UserDto userDto)
+    public async Task<IActionResult> Authenticate([FromBody] User userDto)
     {
         try
         {

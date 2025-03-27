@@ -13,6 +13,7 @@ public class UserService(UserRepository userRepository)
         await ValidateCreateUserParamsOrFail(Email, Password);
 
         return await _userRepository.CreateAsync(new User { Email = Email, Password = Password });
+    }
 
     public async Task<User> AuthenticateAsync(string Email, string Password)
     {

@@ -61,13 +61,13 @@ public class TransactionService(TransactionRepository transactionRepository)
         }
     }
 
-    public async Task<Transaction> StoreTransaction(string Description, decimal Amount, string Entity, DateTime Date)
+    public async Task<Transaction> StoreTransaction(string Description, decimal Amount, string Entity, DateTime CreatedAt)
     {
         try
         {
             IsValidDescription(Description);
             CheckAmount(Amount);
-            var transaction = await _transactionRepository.storeTransaction(Description, Amount, Entity, Date);
+            var transaction = await _transactionRepository.storeTransaction(Description, Amount, Entity, CreatedAt);
             return transaction;
 
         }
@@ -82,12 +82,13 @@ public class TransactionService(TransactionRepository transactionRepository)
         try
         {
             await _transactionRepository.deleteTransaction(transactionId);
-            return new back_end.src.models.Transaction
+            return new Transaction
             {
                 Description = "Deleted",
                 Amount = 0,
                 Entity = "Deleted",
-                Date = DateTime.MinValue
+                CreatedAt = DateTime.Now,
+                User = null // Set this to an appropriate value, e.g., a default user or null if allowed
             };
         }
         catch (Exception ex)

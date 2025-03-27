@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 
+using back_end.src.models;
+
 [ApiController]
 [Route("users")]
 public class UsersController : ControllerBase
@@ -14,7 +16,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateUser([FromBody] UserDto userDto)
+    public async Task<IActionResult> CreateUser([FromBody] User userDto)
     {
         try
         {
@@ -30,10 +32,4 @@ public class UsersController : ControllerBase
             return BadRequest(ex.Message);
         }
     }
-}
-
-public class UserDto
-{
-    public string Email { get; set; }
-    public string Password { get; set; }
 }

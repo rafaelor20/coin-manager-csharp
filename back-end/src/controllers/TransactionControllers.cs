@@ -34,7 +34,7 @@ public class transactionController : ControllerBase
     {
         try
         {
-            var transaction = await _transactionService.StoreTransaction(transactionDto.Description, transactionDto.Amount, transactionDto.Entity, transactionDto.Date);
+            var transaction = await _transactionService.StoreTransaction(transactionDto.Description, transactionDto.Amount, transactionDto.Entity, transactionDto.CreatedAt);
             return Ok();
         }
         catch (Exception ex)

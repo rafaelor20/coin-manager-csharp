@@ -4,16 +4,15 @@ using System.Collections.Generic;
 
 public class AppDbContext : DbContext
 {
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+    {
+    }
     public DbSet<User> Users { get; set; }
     public DbSet<Session> Sessions { get; set; }
     public DbSet<Transaction> Transactions { get; set; }
     public DbSet<Debt> Debts { get; set; }
     public DbSet<Credit> Credits { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseNpgsql(Environment.GetEnvironmentVariable("DATABASE_URL"));
-    }
 }
 
 public class User
@@ -46,7 +45,7 @@ public class Transaction
     public int UserId { get; set; }
     public string? Entity { get; set; }
     public string? Description { get; set; }
-    public float Amount { get; set; }
+    public decimal Amount { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.Now;
 
     public required User User { get; set; }
@@ -58,7 +57,7 @@ public class Debt
     public int UserId { get; set; }
     public string? Description { get; set; }
     public string? Creditor { get; set; }
-    public float Amount { get; set; }
+    public decimal Amount { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.Now;
     public bool Paid { get; set; } = false;
     public DateTime? PayDate { get; set; }
@@ -72,7 +71,7 @@ public class Credit
     public int UserId { get; set; }
     public string? Description { get; set; }
     public string? Debtor { get; set; }
-    public float Amount { get; set; }
+    public decimal Amount { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.Now;
     public bool Paid { get; set; } = false;
     public DateTime? PayDate { get; set; }
