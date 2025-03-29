@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Dapper;
 using System.Data;
-
+using back_end.src.models;
 public class TransactionRepository
 {
     private readonly IDbConnection _dbConnection;

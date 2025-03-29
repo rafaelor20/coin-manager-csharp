@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 
+using back_end.src.models;
+
 [ApiController]
 [Route("transaction")]
 
