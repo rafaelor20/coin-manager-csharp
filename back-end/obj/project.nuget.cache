@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "wwKszcEZGvA=",
+  "dgSpecHash": "QpoTNh9iEog=",
   "success": true,
   "projectFilePath": "/home/rafael/Documentos/Projetos/coin-manager-csharp/back-end/back-end.csproj",
   "expectedPackageFiles": [
+    "/home/rafael/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/home/rafael/.nuget/packages/dapper/2.1.66/dapper.2.1.66.nupkg.sha512",
     "/home/rafael/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/rafael/.nuget/packages/microsoft.aspnetcore.openapi/9.0.3/microsoft.aspnetcore.openapi.9.0.3.nupkg.sha512",

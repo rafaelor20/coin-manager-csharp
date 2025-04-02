@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using BCrypt.Net;
 
 public class AppDbContext : DbContext
 {
@@ -25,7 +26,55 @@ public class AppDbContext : DbContext
                 Email = "testuser@teste.com",
                 Password = "qwerasdf",
                 CreatedAt = DateTime.Now,
-                Amount = 1000
+                Amount = 1000,
+
+                Sessions = new List<Session>
+                    {
+                        new Session {
+                            Id = 1,
+                            UserId = 1,
+                            Token = "token1",
+                            CreatedAt = DateTime.Now
+                        },
+                    },
+
+                Transactions = new List<Transaction>
+                    {
+                        new Transaction {
+                            Id = 1,
+                            UserId = 1,
+                            Entity = "Store A",
+                            Description = "Purchase",
+                            Amount = 200,
+                            CreatedAt = DateTime.Now
+                        },
+                    },
+                Debts = new List<Debt>
+                    {
+                        new Debt {
+                            Id = 1,
+                            UserId = 1,
+                            Description = "Loan from Bank",
+                            Creditor = "Bank A",
+                            Amount = 1000,
+                            CreatedAt = DateTime.Now,
+                            Paid = false
+                        },
+                    },
+                Credits = new List<Credit>
+                    {
+                        new Credit {
+                            Id = 1,
+                            UserId = 1,
+                            Description = "Salary",
+                            Debtor = "Company A",
+                            Amount = 3000,
+                            CreatedAt = DateTime.Now,
+                            Paid = true,
+                            PayDate = DateTime.Now
+                        },
+                    }
+
             },
             new User
             {

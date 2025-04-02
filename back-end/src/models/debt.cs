@@ -13,6 +13,8 @@ namespace back_end.src.models
         public string Description { get; set; }
         public string Creditor { get; set; }
         public decimal Amount { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public bool Paid { get; set; }
+        public DateTime PayDate { get; set; }
     }
 }

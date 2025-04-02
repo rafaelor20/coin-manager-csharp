@@ -87,7 +87,6 @@ public class TransactionService(TransactionRepository transactionRepository)
                 Amount = 0,
                 Entity = "Deleted",
                 CreatedAt = DateTime.Now,
-                User = null // Set this to an appropriate value, e.g., a default user or null if allowed
             };
         }
         catch (Exception ex)

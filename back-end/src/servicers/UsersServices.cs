@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-
+using BCrypt.Net;
 using back_end.src.models;
 
 public class UserService(UserRepository userRepository)
@@ -11,12 +11,14 @@ public class UserService(UserRepository userRepository)
     {
         await ValidateUniqueEmailOrFail(Email);
         await ValidateCreateUserParamsOrFail(Email, Password);
-
+        Password = BCrypt.Net.BCrypt.HashPassword(Password);
         return await _userRepository.CreateAsync(new User { Email = Email, Password = Password });
     }
 
     public async Task<User> AuthenticateAsync(string Email, string Password)
     {
+        Password = BCrypt.Net.BCrypt.HashPassword(Password);
+
         var user = await _userRepository.FindByEmailAndPasswordAsync(Email, Password);
         if (user == null)
         {
